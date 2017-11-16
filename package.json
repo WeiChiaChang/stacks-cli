@@ -1,0 +1,38 @@
+{
+  "name": "stack-cli",
+  "version": "0.1.0",
+  "description": "Check website stack from the terminal.",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeiChiaChang/stack-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "command-line",
+    "stack"
+  ],
+  "author": "WeiChiaChang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WeiChiaChang/stack-cli/issues"
+  },
+  "homepage": "https://github.com/WeiChiaChang/stack-cli#readme",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "cfonts": "^1.1.3",
+    "chalk": "^2.3.0",
+    "cli-table2": "^0.2.0",
+    "inquirer": "^4.0.0",
+    "ora": "^1.3.0",
+    "wappalyzer": "^5.1.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
