@@ -2,7 +2,6 @@ const CFonts = require('cfonts');
 const ora = require('ora');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-// const center = require('center-align');
 const Table = require('cli-table2');
 const options = {
   userAgent: 'Wappalyzer',
@@ -14,7 +13,7 @@ const wappalyzer = require('wappalyzer')(options);
 CFonts.say('Stack-cli', {
 	font: 'block',           // define the font face
 	align: 'center',         // define text alignment
-	colors: ['candy'],        // define all colors
+	colors: ['cyan'],        // define all colors
 	background: 'Black',     // define the background color
 	letterSpacing: 1,        // define letter spacing
 	lineHeight: 1,           // define the line height
@@ -38,7 +37,7 @@ inquirer.prompt(questions).then(function (answers) {
   // console.log(answers.website);
 
   // spinner start
-  const spinner = ora('  Analyzing 📊  ....  ').start();
+  const spinner = ora('📊  Analyzing ....  ').start();
 
   // should be dynamic by user prompt
   // wappalyzer.analyze(answers.website)
