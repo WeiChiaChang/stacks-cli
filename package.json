@@ -2,7 +2,7 @@
   "name": "stacks-cli",
   "version": "0.1.0",
   "description": "Check website stack from the terminal.",
-  "main": "cli.js",
+  "bin": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +16,11 @@
     "stack",
     "stacks"
   ],
-  "author": "WeiChiaChang",
+  "author": {
+    "name": "WeiChiaChang",
+    "email": "ioh04019@gmail.com",
+    "url": "https://github.com/WeiChiaChang"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/WeiChiaChang/stacks-cli/issues"
