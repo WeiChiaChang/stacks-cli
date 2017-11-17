@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const Table = require('cli-table2');
 const options = {
   userAgent: 'Wappalyzer',
-  maxWait: 8000,
+  maxWait: 6000,
   debug: false
 };
 const wappalyzer = require('wappalyzer')(options);
@@ -48,12 +48,12 @@ inquirer.prompt(questions).then(function (answers) {
     // console.log(json.length);
     for (let num = 0; num < json.length; num ++) {
       stackInfo.push(new Array());
-      stackInfo[num].push(chalk.white(json[num].name));
+      stackInfo[num].push(chalk.bold(chalk.bgWhite(chalk.black(json[num].name))));
 
       if (json[num].confidence > 60) {
-        stackInfo[num].push(chalk.white(json[num].confidence) + chalk.white(' % sure'));
+        stackInfo[num].push(chalk.green(json[num].confidence) + chalk.green(' % sure'));
       } else {
-        stackInfo[num].push(chalk.red(json[num].confidence));
+        stackInfo[num].push(chalk.red(json[num].confidence) + chalk.red(' % sure 😭'));
       }
 
       if (json[num].version === '') {
