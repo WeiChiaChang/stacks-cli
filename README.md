@@ -48,10 +48,17 @@ And the scripts will ask you:
 ? Which website stack do you wanna browse ?
 ```
 
-Cope & Paste the URL of the webiste you wanna analyze
+Cope & Paste the URL of the webiste you wanna analyze:
 ```shell
 https://www.cloudflare.com/
 ```
+
+Here's the result screenshot:
+<p align="center">
+  <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
+    <img alt="stacks-cli" src="https://i.imgur.com/WX6QnMV.png">
+  </a>
+</p>
 
 ## License
 MIT © [WeiChiaChang](https://github.com/WeiChiaChang)
