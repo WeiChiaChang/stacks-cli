@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const Table = require('cli-table2');
 const options = {
   userAgent: 'Wappalyzer',
-  maxWait: 6000,
+  maxWait: 8000,
   debug: false
 };
 const wappalyzer = require('wappalyzer')(options);
@@ -14,7 +14,7 @@ const wappalyzer = require('wappalyzer')(options);
 CFonts.say('Stack-cli', {
 	font: 'block',           // define the font face
 	align: 'center',         // define text alignment
-	colors: ['cyan'],        // define all colors
+	colors: ['candy'],        // define all colors
 	background: 'Black',     // define the background color
 	letterSpacing: 1,        // define letter spacing
 	lineHeight: 1,           // define the line height
@@ -38,7 +38,7 @@ inquirer.prompt(questions).then(function (answers) {
   // console.log(answers.website);
 
   // spinner start
-  const spinner = ora('Analyzing .... 🐾  ').start();
+  const spinner = ora('  Analyzing 📊  ....  ').start();
 
   // should be dynamic by user prompt
   // wappalyzer.analyze(answers.website)
@@ -51,7 +51,7 @@ inquirer.prompt(questions).then(function (answers) {
       stackInfo[num].push(chalk.bold(chalk.bgWhite(chalk.black(json[num].name))));
 
       if (json[num].confidence > 60) {
-        stackInfo[num].push(chalk.green(json[num].confidence) + chalk.green(' % sure'));
+        stackInfo[num].push(chalk.green(json[num].confidence) + chalk.green(' % sure 👍'));
       } else {
         stackInfo[num].push(chalk.red(json[num].confidence) + chalk.red(' % sure 😭'));
       }
