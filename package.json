@@ -1,5 +1,5 @@
 {
-  "name": "stack-cli",
+  "name": "stacks-cli",
   "version": "0.1.0",
   "description": "Check website stack from the terminal.",
   "main": "cli.js",
@@ -8,19 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WeiChiaChang/stack-cli.git"
+    "url": "git+https://github.com/WeiChiaChang/stacks-cli.git"
   },
   "keywords": [
     "cli",
     "command-line",
-    "stack"
+    "stack",
+    "stacks"
   ],
   "author": "WeiChiaChang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WeiChiaChang/stack-cli/issues"
+    "url": "https://github.com/WeiChiaChang/stacks-cli/issues"
   },
-  "homepage": "https://github.com/WeiChiaChang/stack-cli#readme",
+  "homepage": "https://github.com/WeiChiaChang/stacks-cli#readme",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "cfonts": "^1.1.3",

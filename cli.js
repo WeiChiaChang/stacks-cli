@@ -10,7 +10,7 @@ const options = {
 };
 const wappalyzer = require('wappalyzer')(options);
 
-CFonts.say('Stack-cli', {
+CFonts.say('Stacks-cli', {
 	font: 'block',           // define the font face
 	align: 'center',         // define text alignment
 	colors: ['cyan'],        // define all colors
