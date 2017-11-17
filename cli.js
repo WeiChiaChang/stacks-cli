@@ -47,7 +47,38 @@ inquirer.prompt(questions).then(function (answers) {
     // console.log(json.length);
     for (let num = 0; num < json.length; num ++) {
       stackInfo.push(new Array());
-      stackInfo[num].push(chalk.bold(chalk.bgWhite(chalk.black(json[num].name))));
+
+      if (json[num].name.toLowerCase().includes('google')) {
+        stackInfo[num].push('🇬');
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cdn')) {
+        stackInfo[num].push('📡');
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('analytics')) {
+        stackInfo[num].push('📈'); 
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('widgets')) {
+        stackInfo[num].push('🔧'); 
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('advertising')) {
+        stackInfo[num].push('📺'); 
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('server')) {
+        stackInfo[num].push('🍪'); 
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cache')) {
+        stackInfo[num].push('⚡'); 
+      } else if (json[num].name.toLowerCase().includes('js') || Object.values(json[num].categories[0])[0].toLowerCase().includes('javascript')) {
+        stackInfo[num].push('📝');
+      } else if (json[num].name.toLowerCase().includes('php')) {
+        stackInfo[num].push('🐘');
+      } else if (json[num].name.toLowerCase().includes('ruby')) {
+        stackInfo[num].push('💎');
+      } else if (json[num].name.toLowerCase().includes('rails')) {
+        stackInfo[num].push('🚊');
+      } else if (json[num].name.toLowerCase().includes('java')) {
+        stackInfo[num].push('☕');
+      } else if (json[num].name.toLowerCase().includes('python') || json[num].name.toLowerCase().includes('django')) {
+        stackInfo[num].push('🐍');
+      } else {
+        stackInfo[num].push('❓');
+      }
+
+      stackInfo[num].push(chalk.bold(chalk.white(json[num].name)));
 
       if (json[num].confidence > 60) {
         stackInfo[num].push(chalk.green(json[num].confidence) + chalk.green(' % sure 👍'));
@@ -99,6 +130,7 @@ let table = new Table({
  
 table.push(
   [
+    chalk.cyan('🏷  type'),
     chalk.cyan('👀  name'), 
     chalk.cyan('💪  confidence'), 
     chalk.cyan('ℹ  version'), 
