@@ -86,11 +86,6 @@ inquirer.prompt(questions).then(function (answers) {
         stackInfo[num].push(chalk.red(json[num].confidence) + chalk.red(' % sure 😭'));
       }
 
-      if (json[num].version === '') {
-        stackInfo[num].push('🙅');
-      } else {
-        stackInfo[num].push(chalk.white(json[num].version));
-      }
       stackInfo[num].push(chalk.white(Object.values(json[num].categories[0])[0]));
       stackInfo[num].push(chalk.white(json[num].website));
     }
@@ -133,7 +128,6 @@ table.push(
     chalk.cyan('🏷  type'),
     chalk.cyan('👀  name'), 
     chalk.cyan('💪  confidence'), 
-    chalk.cyan('ℹ  version'), 
     chalk.cyan('❓  categories'), 
     chalk.cyan('💻  website')
   ]
