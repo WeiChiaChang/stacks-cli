@@ -59,6 +59,8 @@ inquirer.prompt(questions).then(function (answers) {
         stackInfo[num].push('🔧'); 
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('advertising')) {
         stackInfo[num].push('📺'); 
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('font')) {
+        stackInfo[num].push('🔠'); 
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('server')) {
         stackInfo[num].push('🍪'); 
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cache')) {
@@ -67,6 +69,8 @@ inquirer.prompt(questions).then(function (answers) {
         stackInfo[num].push('📝');
       } else if (json[num].name.toLowerCase().includes('php')) {
         stackInfo[num].push('🐘');
+      } else if (json[num].name.toLowerCase().includes('webpack')) {
+        stackInfo[num].push('🗃');
       } else if (json[num].name.toLowerCase().includes('ruby')) {
         stackInfo[num].push('💎');
       } else if (json[num].name.toLowerCase().includes('rails')) {
