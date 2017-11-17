@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const Table = require('cli-table2');
 const options = {
   userAgent: 'Wappalyzer',
-  maxWait: 3000,
+  maxWait: 8000,
   debug: false
 };
 const wappalyzer = require('wappalyzer')(options);
@@ -14,7 +14,7 @@ const wappalyzer = require('wappalyzer')(options);
 CFonts.say('Stack-cli', {
 	font: 'block',           // define the font face
 	align: 'center',         // define text alignment
-	colors: ['candy'],        // define all colors
+	colors: ['cyan'],        // define all colors
 	background: 'Black',     // define the background color
 	letterSpacing: 1,        // define letter spacing
 	lineHeight: 1,           // define the line height
@@ -49,8 +49,18 @@ inquirer.prompt(questions).then(function (answers) {
     for (let num = 0; num < json.length; num ++) {
       stackInfo.push(new Array());
       stackInfo[num].push(chalk.white(json[num].name));
-      stackInfo[num].push(chalk.white(json[num].confidence));
-      stackInfo[num].push(chalk.white(json[num].version));
+
+      if (json[num].confidence > 60) {
+        stackInfo[num].push(chalk.white(json[num].confidence) + chalk.white(' % sure'));
+      } else {
+        stackInfo[num].push(chalk.red(json[num].confidence));
+      }
+
+      if (json[num].version === '') {
+        stackInfo[num].push('🙅');
+      } else {
+        stackInfo[num].push(chalk.white(json[num].version));
+      }
       stackInfo[num].push(chalk.white(Object.values(json[num].categories[0])[0]));
       stackInfo[num].push(chalk.white(json[num].website));
     }
@@ -90,10 +100,10 @@ let table = new Table({
  
 table.push(
   [
-    chalk.cyan('name'), 
-    chalk.cyan('confidence'), 
-    chalk.cyan('version'), 
-    chalk.cyan('categories'), 
-    chalk.cyan('website')
+    chalk.cyan('👀  name'), 
+    chalk.cyan('💪  confidence'), 
+    chalk.cyan('ℹ  version'), 
+    chalk.cyan('❓  categories'), 
+    chalk.cyan('💻  website')
   ]
 );
