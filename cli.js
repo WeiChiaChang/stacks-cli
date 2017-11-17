@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const CFonts = require('cfonts');
 const ora = require('ora');
 const inquirer = require('inquirer');
