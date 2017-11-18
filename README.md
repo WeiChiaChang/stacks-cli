@@ -1,4 +1,4 @@
-# stack-cli
+# stacks-cli
 
 <p align="center">
   <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
