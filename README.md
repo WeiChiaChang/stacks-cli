@@ -1,4 +1,4 @@
-# stacks-cli
+# stacks-cli ![openSource](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
 
 <p align="center">
   <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
