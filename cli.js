@@ -67,6 +67,8 @@ inquirer.prompt(questions).then(function (answers) {
         stackInfo[num].push('⚡'); 
       } else if (json[num].name.toLowerCase().includes('js') || Object.values(json[num].categories[0])[0].toLowerCase().includes('javascript')) {
         stackInfo[num].push('📝');
+      } else if (json[num].name.toLowerCase().includes('bootstrap')) {
+        stackInfo[num].push('🅱'); 
       } else if (json[num].name.toLowerCase().includes('php')) {
         stackInfo[num].push('🐘');
       } else if (json[num].name.toLowerCase().includes('webpack')) {
