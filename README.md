@@ -49,7 +49,7 @@ And the scripts will ask you:
 ? Which website stack do you wanna browse ?
 ```
 
-Cope & Paste the URL of the webiste you wanna analyze:
+Copy & Paste the URL of the webiste you wanna analyze:
 ```shell
 https://www.cloudflare.com/
 ```
