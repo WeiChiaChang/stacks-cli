@@ -13,7 +13,7 @@ const wappalyzer = require('wappalyzer')(options);
 
 CFonts.say('Stacks-cli', {
 	font: 'block',           // define the font face
-	align: 'center',         // define text alignment
+	align: 'left',         // define text alignment
 	colors: ['cyan'],        // define all colors
 	background: 'Black',     // define the background color
 	letterSpacing: 1,        // define letter spacing
