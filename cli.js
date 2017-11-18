@@ -53,6 +53,8 @@ inquirer.prompt(questions).then(function (answers) {
         stackInfo[num].push('🇬');
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cdn')) {
         stackInfo[num].push('📡');
+      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('video')) {
+        stackInfo[num].push('📹'); 
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('analytics')) {
         stackInfo[num].push('📈'); 
       } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('widgets')) {
