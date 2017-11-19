@@ -61,5 +61,24 @@ Here's the result screenshot:
   </a>
 </p>
 
+## Helper
+
+```shell
+Examples
+$ stacks-cli
+
+
+Helpers
+$ stacks-cli -h
+
+
+Show current version
+$ stacks-cli -v
+
+
+Source code of this side project
+$ stacks-cli -s
+```
+
 ## License
 MIT © [WeiChiaChang](https://github.com/WeiChiaChang)
