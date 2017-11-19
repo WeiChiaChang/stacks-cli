@@ -2,7 +2,7 @@
 
 <p align="center">
   <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
-    <img alt="stacks-cli" src="https://i.imgur.com/gOWAhqT.gif">
+    <img alt="stacks-cli" src="https://i.imgur.com/e1dg1Lv.gif">
   </a>
 </p>
 <p align=center>
