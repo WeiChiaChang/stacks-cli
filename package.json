@@ -1,6 +1,6 @@
 {
   "name": "stacks-cli",
-  "version": "0.1.32",
+  "version": "0.1.36",
   "description": "Check website stack from the terminal.",
   "bin": "cli.js",
   "scripts": {

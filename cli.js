@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const fs = require("fs");
 const meow = require('meow');
 const opn = require('opn');
 const CFonts = require('cfonts');
@@ -168,4 +169,4 @@ let run = function (obj) {
   };
 };
 
-run(process.argv.slice(1));
+run(process.argv.slice(2));
