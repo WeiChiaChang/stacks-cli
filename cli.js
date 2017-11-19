@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+const meow = require('meow');
+const opn = require('opn');
 const CFonts = require('cfonts');
 const ora = require('ora');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const Table = require('cli-table2');
+const VERSION = meow().pkg.version;
 const options = {
   userAgent: 'Wappalyzer',
   maxWait: 8000,
@@ -33,7 +36,7 @@ let questions = [
   }
 ];
 
-inquirer.prompt(questions).then(function (answers) {
+let ask = inquirer.prompt(questions).then(function (answers) {
   // console.log(JSON.stringify(answers, null, '  '));
   // console.log(answers.website);
 
@@ -141,3 +144,29 @@ table.push(
     chalk.cyan('💻  website')
   ]
 );
+
+const cliHelp = meow(`
+  Examples
+  $ stacks-cli
+
+  Show current version
+  $ stacks-cli -v
+  version is 0.1.30
+
+  Source code of this side project
+  $ stacks-cli github
+`);
+
+let run = function (obj) {
+  if (obj[0] === '-v') {
+      console.log(`version is ${VERSION}`);
+  } else if (obj[0] === '-h') {
+      console.log(cliHelp.help);
+  } else if (obj[0] === '-s') {
+      opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
+  } else {
+    ask();
+  };
+};
+
+run(process.argv.slice(2)); 
