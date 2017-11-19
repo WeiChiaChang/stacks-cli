@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const fs = require("fs");
 const meow = require('meow');
 const opn = require('opn');
 const CFonts = require('cfonts');
@@ -13,17 +14,6 @@ const options = {
   debug: false
 };
 const wappalyzer = require('wappalyzer')(options);
-
-CFonts.say('Stacks-cli', {
-	font: 'block',           // define the font face
-	align: 'left',         // define text alignment
-	colors: ['cyan'],        // define all colors
-	background: 'Black',     // define the background color
-	letterSpacing: 1,        // define letter spacing
-	lineHeight: 1,           // define the line height
-	space: true,             // define if the output text should have empty lines on top and on the bottom
-	maxLength: '0'           // define how many character can be on one line
-});
 
 let stackInfo = [];
 
@@ -88,6 +78,18 @@ let run = function (obj) {
   } else if (obj[0] === '-s') {
     opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
   } else {
+    
+    CFonts.say('Stacks-cli', {
+      font: 'block',           // define the font face
+      align: 'left',         // define text alignment
+      colors: ['cyan'],        // define all colors
+      background: 'Black',     // define the background color
+      letterSpacing: 1,        // define letter spacing
+      lineHeight: 1,           // define the line height
+      space: true,             // define if the output text should have empty lines on top and on the bottom
+      maxLength: '0'           // define how many character can be on one line
+    });
+
     inquirer.prompt(questions).then(function (answers) {
       // console.log(JSON.stringify(answers, null, '  '));
       // console.log(answers.website);
