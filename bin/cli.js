@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const fs = require("fs");
 const meow = require('meow');
 const opn = require('opn');
 const CFonts = require('cfonts');
