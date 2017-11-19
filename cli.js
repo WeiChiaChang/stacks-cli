@@ -71,21 +71,22 @@ const cliHelp = meow(`
   Examples
   $ stacks-cli
 
+
   Show current version
   $ stacks-cli -v
-  version is 0.1.30
+
 
   Source code of this side project
-  $ stacks-cli github
+  $ stacks-cli -s
 `);
 
 let run = function (obj) {
   if (obj[0] === '-v') {
-      console.log(`version is ${VERSION}`);
+    console.log(`version is ${VERSION}`);
   } else if (obj[0] === '-h') {
-      console.log(cliHelp.help);
+    console.log(cliHelp.help);
   } else if (obj[0] === '-s') {
-      opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
+    opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
   } else {
     inquirer.prompt(questions).then(function (answers) {
       // console.log(JSON.stringify(answers, null, '  '));
@@ -167,4 +168,4 @@ let run = function (obj) {
   };
 };
 
-run(process.argv.slice(2)); 
+run(process.argv.slice(1));
