@@ -5,6 +5,9 @@
   "bin": {
     "stacks-cli": "bin/cli.js"
   },
+  "engines": {
+    "node": ">=7.0.0"
+  },
   "scripts": {
     "test": "mocha"
   },
