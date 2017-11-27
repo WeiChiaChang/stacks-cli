@@ -154,6 +154,8 @@ let run = function (obj) {
     console.log(cliHelp.help);
   } else if (obj[0] === '-s') {
     opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
+  } else if (obj[0] === '-u') {
+    search(obj[0])
   } else {
     
     CFonts.say('Stacks-cli', {
