@@ -70,14 +70,14 @@ const cliHelp = meow(`
   $ stacks-cli -s
 `);
 
-let search = function(answers) {
+let search = function(website) {
 
   // spinner start
   const spinner = ora('📊  Analyzing ....  ').start();
       
   // should be dynamic by user prompt
-  // wappalyzer.analyze(answers.website)
-  wappalyzer.analyze(answers.website)
+  // wappalyzer.analyze(website)
+  wappalyzer.analyze(website)
   .then(json => {
     spinner.stop();
     // console.log(json.length);
@@ -170,7 +170,7 @@ let run = function (obj) {
     inquirer.prompt(questions).then(function (answers) {
       // console.log(JSON.stringify(answers, null, '  '));
       // console.log(answers.website);
-      search(answers)
+      search(answers.website)
     });
   };
 };
