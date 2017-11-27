@@ -155,6 +155,8 @@ let run = function (obj) {
   } else if (obj[0] === '-s') {
     opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
   } else if (obj[0] === '-u') {
+    obj[1] ? search(obj[1]) : console.log('Invalid URL!');     
+  } else if (typeof obj[0] === 'string') {
     search(obj[0])
   } else {
     
