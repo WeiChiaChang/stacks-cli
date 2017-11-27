@@ -83,6 +83,12 @@ let search = function(website) {
   wappalyzer.analyze(website)
   .then(json => {
     spinner.stop();
+
+    if(json.length === 0) {
+      console.log(`${website} doesn\'t respond! :(`);
+      process.exit();
+    }
+
     // console.log(json.length);
     for (let num = 0; num < json.length; num ++) {
       stackInfo.push(new Array());
@@ -147,7 +153,8 @@ let search = function(website) {
   })
   .catch(error => {
     console.error(error);
-  });
+  })
+  .then(() => process.exit());  
 }
 
 let run = function (obj) {
