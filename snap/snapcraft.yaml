@@ -1,0 +1,21 @@
+name: stacks-cli
+version: 'commit-29baf94'
+summary: Analyze website stack from the terminal
+description: |
+  A CLI utility that analyzes the website stack of a given website.
+
+grade: stable
+confinement: strict
+
+apps:
+  stacks-cli:
+    command: bin/stacks-cli
+    plugs:
+      - network
+
+parts:
+  stacks-cli:
+    source: https://github.com/WeiChiaChang/stacks-cli.git
+    plugin: nodejs
+    node-engine: 8.9.1
+
