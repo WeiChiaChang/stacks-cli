@@ -61,6 +61,9 @@ const cliHelp = meow(`
   Examples
   $ stacks-cli
 
+  Analyze URL via cli
+  $ stacks-cli <URL>
+  $ stacks-cli -u <URL>
 
   Show current version
   $ stacks-cli -v
