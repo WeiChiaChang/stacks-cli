@@ -162,6 +162,7 @@ let run = function (obj) {
         }
     
         console.log(table.toString());
+        process.exit()
       })
       .catch(error => {
         console.error(error);
