@@ -80,5 +80,25 @@ Source code of this side project
 $ stacks-cli -s
 ```
 
+## Docker
+
+### Compile image locally
+
+```shell
+$ docker build -t stacks-cli .
+```
+
+### Use compiled image locally
+
+```shell
+$ docker run --rm -ti stacks-cli -h
+```
+
+### Use already compiled image
+
+```shell
+$ docker run --rm -ti femtopixel/stacks-cli
+```
+
 ## License
 MIT © [WeiChiaChang](https://github.com/WeiChiaChang)
