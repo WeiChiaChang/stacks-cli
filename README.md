@@ -67,6 +67,9 @@ Here's a screenshot of the result:
 Examples
 $ stacks-cli
 
+Analyze URL via cli
+$ stacks-cli <URL>
+$ stacks-cli -u <URL>
 
 Helpers
 $ stacks-cli -h
