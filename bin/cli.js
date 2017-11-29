@@ -162,7 +162,7 @@ let run = function (obj) {
   } else if (obj[0] === '-h') {
     console.log(cliHelp.help);
   } else if (obj[0] === '-s') {
-    opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
+    opn('https://github.com/WeiChiaChang/stacks-cli');
   } else if (obj[0] === '-u') {
     obj[1] ? search(obj[1]) : console.log('Invalid URL!');     
   } else if (typeof obj[0] === 'string') {
