@@ -16,10 +16,10 @@
 
 > Check website stack from the terminal.
 
-In fact I know there's already a pretty good one of Chrome extension called Wappalyzer, but I still wanna make a CLI tool for myself. There's 2 major reasons:
+In fact I know there's already a pretty good Chrome extension called Wappalyzer, but I still wanna make a CLI tool for myself. There's 2 major reasons why:
 
-- I've already installed too much extensions so far.
-- I'm a CLI lover, just that simple.
+- I've already installed too many extensions so far.
+- I'm a CLI lover, it's just that simple.
 
 OMMGGGGGGG
 
@@ -29,7 +29,7 @@ OMMGGGGGGG
   </a>
 </p>
 
-Based on these demands, I start working on fixing these issues.
+Based on these demands, I started working on fixing these issues.
 
 ## Install
 
@@ -39,7 +39,7 @@ $ npm install stacks-cli -g
 
 ## Usage
 
-Type the following command in you terminal:
+Type the following command in your terminal:
 ```shell
 $ stacks-cli
 ```
@@ -49,12 +49,12 @@ And the scripts will ask you:
 ? Which website stack do you wanna browse ?
 ```
 
-Copy & Paste the URL of the webiste you wanna analyze:
+Copy & Paste the URL of the website you want to analyze:
 ```shell
 https://www.cloudflare.com/
 ```
 
-Here's the result screenshot:
+Here's a screenshot of the result:
 <p align="center">
   <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
     <img alt="stacks-cli" src="https://i.imgur.com/WX6QnMV.png">
