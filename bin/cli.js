@@ -13,7 +13,7 @@ const options = {
   maxWait: 8000,
   debug: false
 };
-const wappalyzer = require('wappalyzer')(options);
+const Wappalyzer = require('wappalyzer');
 
 let stackInfo = [];
 
@@ -99,6 +99,8 @@ let run = function (obj) {
     
       // should be dynamic by user prompt
       // wappalyzer.analyze(answers.website)
+      let wappalyzer = new Wappalyzer(answers.website, options);
+
       wappalyzer.analyze(answers.website)
       .then(json => {
         spinner.stop();
