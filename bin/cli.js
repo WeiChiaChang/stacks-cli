@@ -83,7 +83,12 @@ let search = function(website) {
   wappalyzer.analyze(website)
   .then(json => {
     spinner.stop();
-    // console.log(json.length);
+
+    if(json.length === 0) {
+      console.log(`${website} doesn\'t respond or no data! :(`);
+      process.exit();
+    }
+
     for (let num = 0; num < json.length; num ++) {
       stackInfo.push(new Array());
     
@@ -147,7 +152,8 @@ let search = function(website) {
   })
   .catch(error => {
     console.error(error);
-  });
+  })
+  .then(() => process.exit());
 }
 
 let run = function (obj) {
@@ -156,7 +162,7 @@ let run = function (obj) {
   } else if (obj[0] === '-h') {
     console.log(cliHelp.help);
   } else if (obj[0] === '-s') {
-    opn('https://github.com/WeiChiaChang/stacks-cli', {app: 'google chrome'});
+    opn('https://github.com/WeiChiaChang/stacks-cli');
   } else if (obj[0] === '-u') {
     obj[1] ? search(obj[1]) : console.log('Invalid URL!');     
   } else if (typeof obj[0] === 'string') {
