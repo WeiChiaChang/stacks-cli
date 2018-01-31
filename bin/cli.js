@@ -8,12 +8,18 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const Table = require('cli-table2');
 const VERSION = meow().pkg.version;
+
+const Wappalyzer = require('wappalyzer');
+
 const options = {
+  debug: false,
+  delay: 500,
+  maxDepth: 3,
+  maxUrls: 10,
+  maxWait: 5000,
+  recursive: true,
   userAgent: 'Wappalyzer',
-  maxWait: 8000,
-  debug: false
 };
-const wappalyzer = require('wappalyzer')(options);
 
 let stackInfo = [];
 
@@ -79,8 +85,8 @@ let search = function(website) {
   const spinner = ora('📊  Analyzing ....  ').start();
       
   // should be dynamic by user prompt
-  // wappalyzer.analyze(website)
-  wappalyzer.analyze(website)
+  const wappalyzer = new Wappalyzer(website, options);
+  wappalyzer.analyze()
   .then(json => {
     spinner.stop();
 
@@ -89,61 +95,60 @@ let search = function(website) {
       process.exit();
     }
 
-    for (let num = 0; num < json.length; num ++) {
+    let resources = json.applications;
+    for (let num in resources) {
       stackInfo.push(new Array());
     
-      if (json[num].name.toLowerCase().includes('google')) {
+      if (resources[num].name.toLowerCase().includes('google')) {
         stackInfo[num].push('🇬');
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cdn')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('cdn')) {
         stackInfo[num].push('📡');
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('video')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('video')) {
         stackInfo[num].push('📹'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('analytics')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('analytics')) {
         stackInfo[num].push('📈'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('widgets')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('widgets')) {
         stackInfo[num].push('🔧'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('advertising')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('advertising')) {
         stackInfo[num].push('📺'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('font')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('font')) {
         stackInfo[num].push('🔠'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('server')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('server')) {
         stackInfo[num].push('🍪'); 
-      } else if (Object.values(json[num].categories[0])[0].toLowerCase().includes('cache')) {
+      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('cache')) {
         stackInfo[num].push('⚡'); 
-      } else if (json[num].name.toLowerCase().includes('js') || Object.values(json[num].categories[0])[0].toLowerCase().includes('javascript')) {
+      } else if (resources[num].name.toLowerCase().includes('js') || Object.values(resources[num].categories[0])[0].toLowerCase().includes('javascript')) {
         stackInfo[num].push('📝');
-      } else if (json[num].name.toLowerCase().includes('bootstrap')) {
+      } else if (resources[num].name.toLowerCase().includes('bootstrap')) {
         stackInfo[num].push('🅱'); 
-      } else if (json[num].name.toLowerCase().includes('php')) {
+      } else if (resources[num].name.toLowerCase().includes('php')) {
         stackInfo[num].push('🐘');
-      } else if (json[num].name.toLowerCase().includes('webpack')) {
+      } else if (resources[num].name.toLowerCase().includes('webpack')) {
         stackInfo[num].push('🗃');
-      } else if (json[num].name.toLowerCase().includes('ruby')) {
+      } else if (resources[num].name.toLowerCase().includes('ruby')) {
         stackInfo[num].push('💎');
-      } else if (json[num].name.toLowerCase().includes('rails')) {
+      } else if (resources[num].name.toLowerCase().includes('rails')) {
         stackInfo[num].push('🚊');
-      } else if (json[num].name.toLowerCase().includes('java')) {
+      } else if (resources[num].name.toLowerCase().includes('java')) {
         stackInfo[num].push('☕');
-      } else if (json[num].name.toLowerCase().includes('python') || json[num].name.toLowerCase().includes('django')) {
+      } else if (resources[num].name.toLowerCase().includes('python') || resources[num].name.toLowerCase().includes('django')) {
         stackInfo[num].push('🐍');
       } else {
         stackInfo[num].push('❓');
       }
     
-      stackInfo[num].push(chalk.bold(chalk.white(json[num].name)));
+      stackInfo[num].push(chalk.bold(chalk.white(resources[num].name)));
     
-      if (json[num].confidence > 60) {
-        stackInfo[num].push(chalk.green(json[num].confidence) + chalk.green(' % sure 👍'));
+      if (resources[num].confidence > 60) {
+        stackInfo[num].push(chalk.green(resources[num].confidence) + chalk.green(' % sure 👍'));
       } else {
-        stackInfo[num].push(chalk.red(json[num].confidence) + chalk.red(' % sure 😭'));
+        stackInfo[num].push(chalk.red(resources[num].confidence) + chalk.red(' % sure 😭'));
       }
     
-      stackInfo[num].push(chalk.white(Object.values(json[num].categories[0])[0]));
-      stackInfo[num].push(chalk.white(json[num].website));
+      stackInfo[num].push(chalk.white(Object.values(resources[num].categories[0])[0]));
+      stackInfo[num].push(chalk.white(resources[num].website));
     }
         
-    // console.log(JSON.stringify(json, null, 2));
-    // console.log(stackInfo);
     for (let number = 0; number < stackInfo.length; number++) {
       table.push(stackInfo[number]);
     }
