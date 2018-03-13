@@ -1,4 +1,4 @@
-# stacks-cli ![openSource](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
+# stacks-cli <a href="https://www.buymeacoffee.com/dKPhu3g" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 <p align="center">
   <a target="_blank" href="https://github.com/WeiChiaChang/stacks-cli">
@@ -103,5 +103,5 @@ $ docker run --rm -ti stacks-cli -h
 $ docker run --rm -ti femtopixel/stacks-cli
 ```
 
-## License
+## License ![openSource](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
 MIT © [WeiChiaChang](https://github.com/WeiChiaChang)
