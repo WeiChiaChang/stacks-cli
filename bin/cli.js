@@ -6,7 +6,7 @@ const CFonts = require('cfonts');
 const ora = require('ora');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const Table = require('cli-table2');
+const Table = require('cli-table3');
 const VERSION = meow().pkg.version;
 
 const Wappalyzer = require('wappalyzer');
