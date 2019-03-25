@@ -28,7 +28,7 @@ let questions = [
   {
     type: 'input',
     name: 'website',
-    message: 'Which website stack do you wanna browse ? (e.g. https://github.com)'
+    message: 'Which website stack do you wanna browse ? (e.g. https://imgur.com)'
   }
 ];
 
@@ -55,11 +55,10 @@ let table = new Table({
  
 table.push(
   [
-    chalk.cyan('🏷  type'),
-    chalk.cyan('👀  name'), 
-    chalk.cyan('💪  confidence'), 
-    chalk.cyan('❓  categories'), 
-    chalk.cyan('💻  website')
+    chalk.cyan('Name'), 
+    chalk.cyan('Confidence'), 
+    chalk.cyan('Categories'), 
+    chalk.cyan('Website')
   ]
 );
 
@@ -97,52 +96,13 @@ let search = function(website) {
 
     let resources = json.applications;
     for (let num in resources) {
-      stackInfo.push(new Array());
-    
-      if (resources[num].name.toLowerCase().includes('google')) {
-        stackInfo[num].push('🇬');
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('cdn')) {
-        stackInfo[num].push('📡');
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('video')) {
-        stackInfo[num].push('📹'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('analytics')) {
-        stackInfo[num].push('📈'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('widgets')) {
-        stackInfo[num].push('🔧'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('advertising')) {
-        stackInfo[num].push('📺'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('font')) {
-        stackInfo[num].push('🔠'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('server')) {
-        stackInfo[num].push('🍪'); 
-      } else if (Object.values(resources[num].categories[0])[0].toLowerCase().includes('cache')) {
-        stackInfo[num].push('⚡'); 
-      } else if (resources[num].name.toLowerCase().includes('js') || Object.values(resources[num].categories[0])[0].toLowerCase().includes('javascript')) {
-        stackInfo[num].push('📝');
-      } else if (resources[num].name.toLowerCase().includes('bootstrap')) {
-        stackInfo[num].push('🅱'); 
-      } else if (resources[num].name.toLowerCase().includes('php')) {
-        stackInfo[num].push('🐘');
-      } else if (resources[num].name.toLowerCase().includes('webpack')) {
-        stackInfo[num].push('🗃');
-      } else if (resources[num].name.toLowerCase().includes('ruby')) {
-        stackInfo[num].push('💎');
-      } else if (resources[num].name.toLowerCase().includes('rails')) {
-        stackInfo[num].push('🚊');
-      } else if (resources[num].name.toLowerCase().includes('java')) {
-        stackInfo[num].push('☕');
-      } else if (resources[num].name.toLowerCase().includes('python') || resources[num].name.toLowerCase().includes('django')) {
-        stackInfo[num].push('🐍');
-      } else {
-        stackInfo[num].push('❓');
-      }
-    
+      stackInfo.push(new Array());    
       stackInfo[num].push(chalk.bold(chalk.white(resources[num].name)));
     
       if (resources[num].confidence > 60) {
-        stackInfo[num].push(chalk.green(resources[num].confidence) + chalk.green(' % sure 👍'));
+        stackInfo[num].push(chalk.green(resources[num].confidence) + chalk.green(' % sure'));
       } else {
-        stackInfo[num].push(chalk.red(resources[num].confidence) + chalk.red(' % sure 😭'));
+        stackInfo[num].push(chalk.red(resources[num].confidence) + chalk.red(' % sure'));
       }
     
       stackInfo[num].push(chalk.white(Object.values(resources[num].categories[0])[0]));
